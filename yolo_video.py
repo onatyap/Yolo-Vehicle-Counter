@@ -192,7 +192,7 @@ num_frames, vehicle_count = 0, 0
 writer = initializeVideoWriter(video_width, video_height, videoStream)
 start_time = int(time.time())
 # loop over frames from the video file stream
-for index in tqdm(range):
+for index in tqdm(range(60)):
 	# Initialization for each iteration
 	boxes, confidences, classIDs = [], [], [] 
 	vehicle_crossed_line_flag = False 
