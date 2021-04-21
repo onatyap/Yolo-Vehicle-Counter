@@ -5,6 +5,7 @@ import time
 from scipy import spatial
 import cv2
 from input_retrieval import *
+from tqdm import tqdm
 
 #All these classes will be counted as 'vehicles'
 list_of_vehicles = ["bicycle","car","motorbike","bus","truck", "train"]
@@ -191,10 +192,7 @@ num_frames, vehicle_count = 0, 0
 writer = initializeVideoWriter(video_width, video_height, videoStream)
 start_time = int(time.time())
 # loop over frames from the video file stream
-while True:
-	print("================NEW FRAME================")
-	num_frames+= 1
-	print("FRAME:\t", num_frames)
+for index in tqdm(range):
 	# Initialization for each iteration
 	boxes, confidences, classIDs = [], [], [] 
 	vehicle_crossed_line_flag = False 
@@ -276,10 +274,6 @@ while True:
 
     # write the output frame to disk
 	writer.write(frame)
-
-	cv2.imshow('Frame', frame)
-	if cv2.waitKey(1) & 0xFF == ord('q'):
-		break	
 	
 	# Updating with the current frame detections
 	previous_frame_detections.pop(0) #Removing the first frame from the list
